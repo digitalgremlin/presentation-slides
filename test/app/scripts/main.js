@@ -14,8 +14,14 @@ require.config({
 require([
 	'backbone',
 	'views/app'	
-	], function (Backbone, App) {
+	], function (Backbone, AppView) {
 		'use strict';
 
-		new App();
+		window.App = {
+			Vent: _.extend({}, Backbone.Events)
+		};
+
+
+
+		new AppView();
 	});
