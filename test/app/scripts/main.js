@@ -11,3 +11,11 @@ require.config({
     }
 });
 
+require([
+	'backbone',
+	'views/app'	
+	], function (Backbone, App) {
+		'use strict';
+
+		new App();
+	});
