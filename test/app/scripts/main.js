@@ -3,11 +3,17 @@
 
 require.config({
     shim: {
+
     },
     paths: {
         jquery: '../bower_components/jquery/dist/jquery',
         backbone: '../bower_components/backbone/backbone',
-        underscore: '../bower_components/lodash/dist/lodash'
+        underscore: '../bower_components/lodash/dist/lodash',
+        'requirejs-text': '../bower_components/requirejs-text/text',
+        requirejs: '../bower_components/requirejs/require',
+        modernizr: '../bower_components/modernizr/modernizr',
+        lodash: '../bower_components/lodash/dist/lodash.compat',
+        bootstrap: '../bower_components/bootstrap/dist/js/bootstrap'
     }
 });
 
