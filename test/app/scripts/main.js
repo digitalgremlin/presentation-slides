@@ -11,8 +11,3 @@ require.config({
     }
 });
 
-require([
-    'backbone'
-], function (Backbone) {
-    Backbone.history.start();
-});
