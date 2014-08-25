@@ -56,8 +56,7 @@ define([
 		},
 		animateToNewSlide: function(newSlide, slides, self) {
 			// transition to the slide spcified
-			slides.filter(':visible')
-			.css('position', 'absolute') //Temporary
+			slides.filter(':visible')			
 			.animate({
 				top: '100%',
 				opacity: 'hide'
@@ -66,8 +65,7 @@ define([
 				$(this).css('top', 0);
 				// bring new slide into view
 				newSlide
-				.css({
-				position: 'absolute',
+				.css({				
 				top: '-100%'
 				}) //Temporary
 				.animate({
