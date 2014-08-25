@@ -7,18 +7,47 @@ define([
 		render: function() {
 			if ( this.model.get('image')) {
 				this.renderImage();
+			} else if (this.model.get('bullets')) {
+				this.renderBullets();
+			} else {
+				this.renderHeading();
 			}
-
-			this.$el.append(
-				'<h1 class="' + this.model.get('size') + '">' + this.model.get('title') + '</h1>'
-				);
+			
 			return this;
 		},
 
 		renderImage: function() {
+			if (this.model.get('title')) {
+				this.renderHeading();
+			}
+
 			this.$el
 			.addClass('image')
 			.append('<img src="' +  this.model.get('image') + '">');
+
+			return this;
+		},
+		renderBullets: function() {
+			if (this.model.get('title')) {
+				this.renderHeading();
+			}
+			
+			this.$el
+			.addClass('bullets')
+			.append([
+				'<ul>',
+				'<li>' + this.model.get('bullets').join('</li><li>'),
+				'</ul>'
+
+				].join(''));
+
+			return this;
+		},
+		renderHeading: function() {
+			this.$el.append(
+				'<h1 class="' + this.model.get('size') + '">' + this.model.get('title') + '</h1>'
+				);
+			return this;
 		}
 
 	});
