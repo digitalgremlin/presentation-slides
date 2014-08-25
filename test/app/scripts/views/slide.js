@@ -7,6 +7,8 @@ define([
 		render: function() {
 			if ( this.model.get('image')) {
 				this.renderImage();
+			} else if (this.model.get('quote')){
+				this.renderQuote();
 			} else if (this.model.get('bullets')) {
 				this.renderBullets();
 			} else {
@@ -31,7 +33,7 @@ define([
 			if (this.model.get('title')) {
 				this.renderHeading();
 			}
-			
+
 			this.$el
 			.addClass('bullets')
 			.append([
@@ -39,6 +41,28 @@ define([
 				'<li>' + this.model.get('bullets').join('</li><li>'),
 				'</ul>'
 
+				].join(''));
+
+			return this;
+		},
+		renderQuote: function() {
+			if (this.model.get('title')) {
+				this.renderHeading();
+			}
+
+			this.$el
+			.addClass('quote')
+			.append([
+				'<figure>', 
+				'<blockquote>', 
+				this.model.get('quote'),
+				'</blockquote>',
+				'<figcaption>',
+				'<cite>',
+				this.model.get('cite'),
+				'</cite>',
+				'</figcaption>',
+				'</figure>'
 				].join(''));
 
 			return this;
