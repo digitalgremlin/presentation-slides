@@ -1,5 +1,6 @@
 define([
-	'backbone'
+	'backbone',
+	'google-code-prettify'
 	], function(Backbone) {
 	var Slide = Backbone.View.extend({
 		className: 'slide',
@@ -7,6 +8,8 @@ define([
 		render: function() {
 			if ( this.model.get('image')) {
 				this.renderImage();
+			} else if (this.model.get('snippet')){
+				this.renderSnippet();
 			} else if (this.model.get('quote')){
 				this.renderQuote();
 			} else if (this.model.get('bullets')) {
@@ -66,6 +69,21 @@ define([
 				].join(''));
 
 			return this;
+		},
+
+		renderSnippet: function() {
+			var self = this,
+			 snippet = this.model.get('snippet');
+			if (this.model.get('title')) {
+				this.renderHeading();
+			}
+			$.get(snippet, function(snippet){
+				self.$el
+				.addClass('snippet')
+				.append('<pre class="prettyprint">' + _.escape(snippet)+ '</pre>');
+				prettyPrint();
+			});
+
 		},
 		renderHeading: function() {
 			this.$el.append(

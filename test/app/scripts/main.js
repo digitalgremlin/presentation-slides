@@ -13,14 +13,14 @@ require.config({
         requirejs: '../bower_components/requirejs/require',
         modernizr: '../bower_components/modernizr/modernizr',
         lodash: '../bower_components/lodash/dist/lodash.compat',
-        bootstrap: '../bower_components/bootstrap/dist/js/bootstrap'
+        bootstrap: '../bower_components/bootstrap/dist/js/bootstrap',
+        'google-code-prettify': '../bower_components/google-code-prettify/bin/prettify.min'
     }
 });
 
-require([
-	'backbone',
+require([	
 	'views/app'	
-	], function (Backbone, AppView) {
+	], function (AppView) {
 		'use strict';
 
 		window.App = {

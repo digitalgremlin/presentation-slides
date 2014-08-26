@@ -1,6 +1,10 @@
 window.slides = [
 {title: 'My Presentation'},
 {
+	title: 'Some CSS',
+	snippet: '../snippets/ep1.css'
+},
+{
 	title: 'Why This Matters! :)',
 	bullets: ['Point One', 'Point Two', 'Point Three']
 },
