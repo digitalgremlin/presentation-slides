@@ -1,8 +1,15 @@
 window.slides = [
 {title: 'My Presentation'},
 {
-	title: 'Some CSS',
-	snippet: '../snippets/ep1.css'
+	title: 'Some CSS and JS',
+	snippet: {
+		'CSS': '../snippets/ep1.txt',
+		'JavaScript': '../snippets/ep2.txt'
+	}
+},
+{
+	title: 'Just some JS',
+	snippet: '../snippets/ep2.txt'
 },
 {
 	title: 'Why This Matters! :)',
