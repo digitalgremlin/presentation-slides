@@ -6,19 +6,24 @@ define([
 		className: 'slide',
 
 		render: function() {
-			if ( this.model.get('image')) {
-				this.renderImage();
-			} else if (this.model.get('snippet')){
-				this.renderSnippet();
-			} else if (this.model.get('quote')){
-				this.renderQuote();
-			} else if (this.model.get('bullets')) {
-				this.renderBullets();
-			} else {
-				this.renderHeading();
-			}
+			var type = this.getContentType();
 			
+			this['render' + type]();
 			return this;
+		},
+
+		getContentType: function() {
+			if ( this.model.get('image')) {
+				return 'Image';				
+			} else if (this.model.get('snippet')){
+				return 'Snippet';				
+			} else if (this.model.get('quote')){
+				return 'Quote';				
+			} else if (this.model.get('bullets')) {
+				return 'Bullets';				
+			} else {
+				return 'Heading';				
+			}
 		},
 
 		renderImage: function() {
